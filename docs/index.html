@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ORB Atelier · Mara</title>
+    <meta
+      name="description"
+      content="Mara recoge encargos de restauración para el taller ORB. El modelo corre en local con Ollama."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Outfit:wght@380;520;640&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%231c2420' width='32' height='32' rx='8'/%3E%3Ccircle cx='16' cy='13' r='5' fill='none' stroke='%23e7c7a1' stroke-width='1.6'/%3E%3Cpath d='M16 18v6M12 24h8' stroke='%23e7c7a1' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="rail">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow">Taller de restauración</p>
+            <h1>ORB Atelier</h1>
+          </div>
+        </div>
+        <button id="new-chat" class="solid" type="button">Nueva consulta</button>
+        <ol id="history" class="history"></ol>
+        <p class="rail-note">Valencia · lámparas, muebles y tapizados. La ficha no se cierra sola: tú la confirmas.</p>
+      </aside>
+
+      <section class="stage">
+        <header class="top">
+          <div>
+            <p class="eyebrow">Mara</p>
+            <h2>Mostrador del taller</h2>
+          </div>
+          <div class="top-actions">
+            <span id="link-status" class="pill">Comprobando</span>
+            <button id="voice" class="ghost" type="button" aria-pressed="false">Leer en voz alta</button>
+          </div>
+        </header>
+        <div id="banner" class="banner" hidden></div>
+        <ol id="messages" class="messages" aria-live="polite"></ol>
+        <form id="composer" class="composer">
+          <label class="sr-only" for="draft">Mensaje</label>
+          <textarea id="draft" rows="2" placeholder="Cuéntale a Mara qué hay que restaurar"></textarea>
+          <div class="composer-actions">
+            <button id="mic" class="ghost" type="button" aria-pressed="false">Hablar</button>
+            <button id="confirm" class="ghost" type="button" hidden>Confirmar ficha</button>
+            <button id="download" class="ghost" type="button" hidden>Descargar JSON</button>
+            <button id="send" class="solid" type="submit">Enviar</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="dossier">
+        <p class="eyebrow" id="dossier-kicker">Ficha</p>
+        <h2 id="ticket">Sin abrir</h2>
+        <dl class="meta">
+          <div><dt>Estado</dt><dd id="status">—</dd></div>
+          <div><dt>Tono</dt><dd id="sentiment">—</dd></div>
+          <div><dt>Idioma</dt><dd id="language">—</dd></div>
+        </dl>
+        <ul id="missing" class="missing"></ul>
+        <dl id="fields" class="fields"></dl>
+        <h3 id="summary-title">Resumen</h3>
+        <p id="summary" class="summary">Todavía no hay datos suficientes.</p>
+        <h3 id="notes-title">Notas del taller</h3>
+        <ul id="citations" class="citations"></ul>
+      </aside>
+    </div>
+
+    <section class="about" id="about">
+      <div class="about-inner">
+        <p class="eyebrow">Cómo está hecho</p>
+        <h2>Un mostrador local, publicable como página estática.</h2>
+        <ol class="steps">
+          <li>
+            <strong>Navegador</strong>
+            <span>Conversación, micrófono y voz. En GitHub Pages solo vive esta capa.</span>
+          </li>
+          <li>
+            <strong>Python</strong>
+            <span>Valida la ficha, guarda el JSON y decide cuándo pedir confirmación.</span>
+          </li>
+          <li>
+            <strong>Ollama</strong>
+            <span>llama3.2 redacta la respuesta en tu máquina. Nada se envía a un proveedor.</span>
+          </li>
+          <li>
+            <strong>Notas</strong>
+            <span>Garantía, plazos y seguridad se buscan por palabras, sin otro modelo.</span>
+          </li>
+        </ol>
+        <p class="about-copy">
+          GitHub Pages no puede ejecutar Python ni Ollama. Esta URL enseña un encargo de ejemplo y la arquitectura.
+          Para hablar con Mara, en el ordenador donde corre Ollama: <code>python serve.py</code> y abre
+          <code>http://127.0.0.1:8765</code>.
+        </p>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>

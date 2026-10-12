@@ -1,0 +1,3 @@
+# The agent and the local server use only the Python standard library.
+# pytest is required to run the test suite.
+pytest>=8.0

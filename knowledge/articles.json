@@ -1,0 +1,116 @@
+{
+  "articles": [
+    {
+      "id": "what-we-repair-es",
+      "lang": "es",
+      "title": "Qué reparamos",
+      "tags": ["reparar", "restaurar", "lampara", "mueble", "tapizado", "pieza"],
+      "body": "ORB Atelier, en Valencia, restaura lámparas, muebles de madera y tapizados pequeños. No reparamos electrodomésticos de gas, cristalería estructural ni aparatos con garantía de otro fabricante todavía vigente."
+    },
+    {
+      "id": "what-we-repair-en",
+      "lang": "en",
+      "title": "What we repair",
+      "tags": ["repair", "restore", "lamp", "furniture", "upholstery", "piece"],
+      "body": "ORB Atelier in Valencia restores lamps, wooden furniture, and small upholstery. We do not repair gas appliances, structural glass, or items still under another manufacturer's warranty."
+    },
+    {
+      "id": "warranty-es",
+      "lang": "es",
+      "title": "Garantía",
+      "tags": ["garantia", "garantía", "meses", "mano", "obra"],
+      "body": "La mano de obra de ORB Atelier tiene 12 meses de garantía desde la entrega. La garantía cubre el trabajo realizado, no el desgaste normal ni un golpe nuevo. Las piezas de terceros conservan la garantía de su fabricante."
+    },
+    {
+      "id": "warranty-en",
+      "lang": "en",
+      "title": "Warranty",
+      "tags": ["warranty", "months", "labour", "labor", "guarantee"],
+      "body": "ORB Atelier labour is warranted for 12 months from delivery. The warranty covers the work we did, not normal wear or a new impact. Third-party parts keep their own manufacturer's warranty."
+    },
+    {
+      "id": "timing-es",
+      "lang": "es",
+      "title": "Plazos",
+      "tags": ["plazo", "tiempo", "semana", "dias", "tardais", "entrega"],
+      "body": "Una revisión en el taller suele tardar de 7 a 10 días laborables. Si hay que pedir una pieza, el plazo se alarga y te avisamos antes de seguir. Una visita a domicilio dentro de Valencia se agenda en los siguientes 5 días laborables."
+    },
+    {
+      "id": "timing-en",
+      "lang": "en",
+      "title": "Turnaround",
+      "tags": ["turnaround", "how long", "days", "weeks", "delivery", "wait"],
+      "body": "A workshop assessment usually takes 7 to 10 business days. If we must order a part, the wait is longer and we tell you before continuing. A home visit inside Valencia is scheduled within the next 5 business days."
+    },
+    {
+      "id": "electrical-es",
+      "lang": "es",
+      "title": "Seguridad eléctrica",
+      "tags": ["chispa", "chispas", "humo", "cable", "enchufe", "electrico", "olor"],
+      "body": "Si la pieza echa chispas, huele a quemado o calienta el cable, desenchúfala y no la uses. Eso se trata como urgencia crítica. No abras el portalámparas ni toques cables pelados."
+    },
+    {
+      "id": "electrical-en",
+      "lang": "en",
+      "title": "Electrical safety",
+      "tags": ["spark", "sparks", "smoke", "burning", "wire", "socket", "electrical"],
+      "body": "If the piece sparks, smells of burning, or the cord gets hot, unplug it and stop using it. We treat that as critical urgency. Do not open the socket or touch bare wires."
+    },
+    {
+      "id": "reference-es",
+      "lang": "es",
+      "title": "Número de pedido",
+      "tags": ["pedido", "referencia", "orb", "ticket", "recibo"],
+      "body": "El número de pedido tiene la forma ORB- seguido de 3 a 6 dígitos, por ejemplo ORB-1042. Está en el recibo y en el email de encargo. Si es una pieza nueva, no hace falta número."
+    },
+    {
+      "id": "reference-en",
+      "lang": "en",
+      "title": "Order number",
+      "tags": ["order", "reference", "orb", "receipt", "ticket"],
+      "body": "Order numbers look like ORB- followed by 3 to 6 digits, for example ORB-1042. They are printed on the receipt and the commission email. A new piece does not need a number."
+    },
+    {
+      "id": "pricing-es",
+      "lang": "es",
+      "title": "Precios",
+      "tags": ["precio", "cuesta", "presupuesto", "tarifa", "gratis"],
+      "body": "Ver la pieza y preparar un presupuesto no tiene coste. No damos un precio cerrado por chat: el presupuesto sale después de ver la pieza. Si no aceptas el presupuesto, no hay compromiso."
+    },
+    {
+      "id": "pricing-en",
+      "lang": "en",
+      "title": "Pricing",
+      "tags": ["price", "cost", "quote", "estimate", "free"],
+      "body": "Looking at the piece and preparing a quote is free. We do not give a firm price in chat: the quote comes after we see the piece. If you decline the quote, there is no commitment."
+    },
+    {
+      "id": "visits-es",
+      "lang": "es",
+      "title": "Visitas y contacto",
+      "tags": ["visita", "horario", "mañana", "tarde", "direccion", "valencia", "cita"],
+      "body": "El taller está en la calle de la Mar 12, Valencia. El horario de recogida es de lunes a viernes, de 10:00 a 14:00 y de 16:00 a 19:00. Puedes pedir aviso por la mañana, por la tarde o por la noche."
+    },
+    {
+      "id": "visits-en",
+      "lang": "en",
+      "title": "Visits and contact",
+      "tags": ["visit", "hours", "morning", "afternoon", "address", "valencia", "appointment"],
+      "body": "The workshop is at 12 Calle de la Mar, Valencia. Drop-off hours are Monday to Friday, 10:00–14:00 and 16:00–19:00. You can ask us to call in the morning, afternoon, or evening."
+    },
+    {
+      "id": "billing-es",
+      "lang": "es",
+      "title": "Facturas",
+      "tags": ["factura", "cobro", "pago", "iva", "reembolso"],
+      "body": "Emitimos factura con IVA después de aceptar el presupuesto. Un reembolso solo aplica si la garantía cubre el arreglo y lo revisamos en el taller. Para una factura ya emitida hace falta el número de pedido."
+    },
+    {
+      "id": "billing-en",
+      "lang": "en",
+      "title": "Invoices",
+      "tags": ["invoice", "billing", "payment", "vat", "refund"],
+      "body": "We issue a VAT invoice after you accept the quote. A refund applies only when the warranty covers the repair and we have reviewed the piece. An existing invoice requires the order number."
+    }
+  ]
+}

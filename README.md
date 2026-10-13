@@ -110,7 +110,7 @@ The published page is the interface plus the example ticket. Visitors do not rea
 
 Record a short capture of two chats: one that files a complete ticket, and one that asks about the warranty. Upload it and put the URL here.
 
-`DEMO_VIDEO_URL=`
+`DEMO_VIDEO_URL= https://youtu.be/AWcx86yCBuI`
 
 ## Possible improvements
 

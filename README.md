@@ -97,10 +97,9 @@ A turn on a laptop CPU is often under a minute once `llama3.2` is loaded. The fi
 
 ## Publish on GitHub Pages
 
-1. Push this repository to GitHub.
-2. Settings → Pages → Build and deployment → Deploy from a branch.
-3. Branch `main` (or the branch you use), folder **`/docs`**.
-4. Save. The site will be `https://<user>.github.io/<repo>/`.
+
+[Published page](https://cesarodiaz.github.io/ORB-AI-Assignment/)
+
 
 The published page is the interface plus the example ticket. Visitors do not reach your Ollama. To give someone the live agent, they run `python3 serve.py` on a machine where Ollama is installed.
 

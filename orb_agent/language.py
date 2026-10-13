@@ -16,14 +16,14 @@ _EN = {
 }
 
 
-def detect_language(text: str, previous: str = "es") -> str:
+def detect_language(text: str, previous: str = "en") -> str:
     words = tokens(text)
     if not words:
-        return previous if previous in {"es", "en"} else "es"
+        return previous if previous in {"es", "en"} else "en"
     spanish = len(words & _ES)
     english = len(words & _EN)
     if spanish > english:
         return "es"
     if english > spanish:
         return "en"
-    return previous if previous in {"es", "en"} else "es"
+    return previous if previous in {"es", "en"} else "en"

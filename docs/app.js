@@ -116,7 +116,11 @@ const state = {
 const $ = (id) => document.getElementById(id);
 
 function language() {
-  return state.conversation?.language === "en" ? "en" : "es";
+  return "en";
+}
+
+function speechLanguage() {
+  return state.conversation?.language === "es" ? "es-ES" : "en-US";
 }
 
 function text(key) {
@@ -150,7 +154,7 @@ async function boot() {
         id: state.conversation.id,
         customer_name: state.conversation.intake.customer_name,
         status: state.conversation.status,
-        preview: "Ejemplo publicado",
+        preview: "Published example",
       },
     ];
     render();
@@ -195,13 +199,13 @@ function renderBanner() {
   if (state.mode === "static") {
     banner.hidden = false;
     banner.textContent =
-      "Estás viendo la página pública. Esta consulta es un ejemplo guardado. Para hablar con Mara hace falta el servidor local y Ollama: python serve.py";
+      "This is the public page. The request below is a saved example. To talk to Mara, run the local server with Ollama: python serve.py";
     return;
   }
   if (!state.ollama) {
     banner.hidden = false;
     banner.textContent =
-      "No encuentro Ollama en 127.0.0.1:11434. Puedes seguir la ficha: Mara preguntará los datos que faltan, sin redactar con el modelo.";
+      "Ollama is not reachable at 127.0.0.1:11434. You can still fill the ticket: Mara will ask for the missing details without drafting a reply.";
     return;
   }
   banner.hidden = true;
@@ -210,11 +214,11 @@ function renderBanner() {
 function renderStatus() {
   const pill = $("link-status");
   if (state.mode === "static") {
-    pill.textContent = "Página estática";
+    pill.textContent = "Static page";
     pill.className = "pill";
     return;
   }
-  pill.textContent = state.ollama ? `Ollama · ${state.model}` : "Ollama sin conexión";
+  pill.textContent = state.ollama ? `Ollama · ${state.model}` : "Ollama offline";
   pill.className = state.ollama ? "pill ok" : "pill warn";
 }
 
@@ -227,7 +231,7 @@ function renderHistory() {
     button.type = "button";
     if (item.id === state.conversation?.id) button.className = "active";
     const title = document.createElement("strong");
-    title.textContent = item.customer_name || item.ticket_id || "Consulta nueva";
+    title.textContent = item.customer_name || item.ticket_id || "New request";
     const preview = document.createElement("span");
     preview.textContent = item.preview || item.status || "";
     button.append(title, preview);
@@ -263,7 +267,7 @@ function renderDossier() {
   $("ticket").textContent = conversation?.ticket_id || "Sin abrir";
   $("status").textContent = conversation ? text(conversation.status) : "—";
   $("sentiment").textContent = conversation ? text(conversation.sentiment) : "—";
-  $("language").textContent = conversation?.language === "en" ? "English" : conversation ? "Español" : "—";
+  $("language").textContent = conversation?.language === "es" ? "Spanish" : conversation ? "English" : "—";
   $("summary").textContent = conversation?.summary || text("emptySummary");
 
   const missing = $("missing");
@@ -345,10 +349,10 @@ async function sendText(textValue) {
   $("draft").value = "";
   render();
   const started = Date.now();
-  $("send").textContent = "Mara escribe…";
+  $("send").textContent = "Mara is writing…";
   const ticker = setInterval(() => {
     const seconds = Math.round((Date.now() - started) / 1000);
-    $("send").textContent = `Mara escribe… ${seconds}s`;
+    $("send").textContent = `Mara is writing… ${seconds}s`;
   }, 1000);
   try {
     const response = await fetch(`api/conversations/${state.conversation.id}/messages`, {
@@ -357,7 +361,7 @@ async function sendText(textValue) {
       body: JSON.stringify({ text: content }),
     });
     const payload = await response.json();
-    if (!response.ok) throw new Error(payload.error || "No se pudo enviar");
+    if (!response.ok) throw new Error(payload.error || "Could not send the message");
     state.conversation = payload;
     $("draft").value = "";
     state.notice = "";
@@ -367,7 +371,7 @@ async function sendText(textValue) {
     state.notice = error.message;
   } finally {
     clearInterval(ticker);
-    $("send").textContent = "Enviar";
+    $("send").textContent = "Send";
     state.busy = false;
     render();
   }
@@ -376,7 +380,7 @@ async function sendText(textValue) {
 function speak(content) {
   if (!window.speechSynthesis) return;
   const utterance = new SpeechSynthesisUtterance(content);
-  utterance.lang = language() === "en" ? "en-US" : "es-ES";
+  utterance.lang = speechLanguage();
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 }
@@ -395,7 +399,7 @@ function toggleVoice() {
 function toggleMic() {
   const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!Recognition) {
-    state.notice = "Este navegador no transcribe voz. Chrome sí puede hacerlo.";
+    state.notice = "This browser cannot transcribe speech. Chrome can.";
     render();
     return;
   }
@@ -404,7 +408,7 @@ function toggleMic() {
     return;
   }
   const recognition = new Recognition();
-  recognition.lang = language() === "en" ? "en-US" : "es-ES";
+  recognition.lang = speechLanguage();
   recognition.interimResults = false;
   recognition.onresult = (event) => {
     const said = event.results[0][0].transcript;

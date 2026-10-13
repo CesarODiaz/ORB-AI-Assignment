@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ORB Atelier · Mara</title>
     <meta
       name="description"
-      content="Mara recoge encargos de restauración para el taller ORB. El modelo corre en local con Ollama."
+      content="Mara takes restoration requests for ORB Atelier. The model runs locally with Ollama."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,82 +23,82 @@
         <div class="brand">
           <span class="mark" aria-hidden="true"></span>
           <div>
-            <p class="eyebrow">Taller de restauración</p>
+            <p class="eyebrow">Restoration workshop</p>
             <h1>ORB Atelier</h1>
           </div>
         </div>
-        <button id="new-chat" class="solid" type="button">Nueva consulta</button>
+        <button id="new-chat" class="solid" type="button">New request</button>
         <ol id="history" class="history"></ol>
-        <p class="rail-note">Valencia · lámparas, muebles y tapizados. La ficha no se cierra sola: tú la confirmas.</p>
+        <p class="rail-note">Valencia · lamps, furniture, and upholstery. The ticket is filed only after you confirm it.</p>
       </aside>
 
       <section class="stage">
         <header class="top">
           <div>
             <p class="eyebrow">Mara</p>
-            <h2>Mostrador del taller</h2>
+            <h2>Workshop desk</h2>
           </div>
           <div class="top-actions">
-            <span id="link-status" class="pill">Comprobando</span>
-            <button id="voice" class="ghost" type="button" aria-pressed="false">Leer en voz alta</button>
+            <span id="link-status" class="pill">Checking</span>
+            <button id="voice" class="ghost" type="button" aria-pressed="false">Read aloud</button>
           </div>
         </header>
         <div id="banner" class="banner" hidden></div>
         <ol id="messages" class="messages" aria-live="polite"></ol>
         <form id="composer" class="composer">
-          <label class="sr-only" for="draft">Mensaje</label>
-          <textarea id="draft" rows="2" placeholder="Cuéntale a Mara qué hay que restaurar"></textarea>
+          <label class="sr-only" for="draft">Message</label>
+          <textarea id="draft" rows="2" placeholder="Tell Mara what needs restoring"></textarea>
           <div class="composer-actions">
-            <button id="mic" class="ghost" type="button" aria-pressed="false">Hablar</button>
-            <button id="confirm" class="ghost" type="button" hidden>Confirmar ficha</button>
-            <button id="download" class="ghost" type="button" hidden>Descargar JSON</button>
-            <button id="send" class="solid" type="submit">Enviar</button>
+            <button id="mic" class="ghost" type="button" aria-pressed="false">Speak</button>
+            <button id="confirm" class="ghost" type="button" hidden>Confirm ticket</button>
+            <button id="download" class="ghost" type="button" hidden>Download JSON</button>
+            <button id="send" class="solid" type="submit">Send</button>
           </div>
         </form>
       </section>
 
       <aside class="dossier">
-        <p class="eyebrow" id="dossier-kicker">Ficha</p>
-        <h2 id="ticket">Sin abrir</h2>
+        <p class="eyebrow" id="dossier-kicker">Ticket</p>
+        <h2 id="ticket">Not started</h2>
         <dl class="meta">
-          <div><dt>Estado</dt><dd id="status">—</dd></div>
-          <div><dt>Tono</dt><dd id="sentiment">—</dd></div>
-          <div><dt>Idioma</dt><dd id="language">—</dd></div>
+          <div><dt>Status</dt><dd id="status">—</dd></div>
+          <div><dt>Tone</dt><dd id="sentiment">—</dd></div>
+          <div><dt>Language</dt><dd id="language">—</dd></div>
         </dl>
         <ul id="missing" class="missing"></ul>
         <dl id="fields" class="fields"></dl>
-        <h3 id="summary-title">Resumen</h3>
-        <p id="summary" class="summary">Todavía no hay datos suficientes.</p>
-        <h3 id="notes-title">Notas del taller</h3>
+        <h3 id="summary-title">Summary</h3>
+        <p id="summary" class="summary">Not enough detail for a summary yet.</p>
+        <h3 id="notes-title">Workshop notes</h3>
         <ul id="citations" class="citations"></ul>
       </aside>
     </div>
 
     <section class="about" id="about">
       <div class="about-inner">
-        <p class="eyebrow">Cómo está hecho</p>
-        <h2>Un mostrador local, publicable como página estática.</h2>
+        <p class="eyebrow">How it is built</p>
+        <h2>A local desk that can also be published as a static page.</h2>
         <ol class="steps">
           <li>
-            <strong>Navegador</strong>
-            <span>Conversación, micrófono y voz. En GitHub Pages solo vive esta capa.</span>
+            <strong>Browser</strong>
+            <span>Chat, microphone, and voice. On GitHub Pages, only this layer is served.</span>
           </li>
           <li>
             <strong>Python</strong>
-            <span>Valida la ficha, guarda el JSON y decide cuándo pedir confirmación.</span>
+            <span>Validates the ticket, saves the JSON, and decides when to ask for confirmation.</span>
           </li>
           <li>
             <strong>Ollama</strong>
-            <span>llama3.2 redacta la respuesta en tu máquina. Nada se envía a un proveedor.</span>
+            <span>llama3.2 writes the reply on your machine. Nothing is sent to a provider.</span>
           </li>
           <li>
-            <strong>Notas</strong>
-            <span>Garantía, plazos y seguridad se buscan por palabras, sin otro modelo.</span>
+            <strong>Notes</strong>
+            <span>Warranty, timing, and safety are found by words, without a second model.</span>
           </li>
         </ol>
         <p class="about-copy">
-          GitHub Pages no puede ejecutar Python ni Ollama. Esta URL enseña un encargo de ejemplo y la arquitectura.
-          Para hablar con Mara, en el ordenador donde corre Ollama: <code>python serve.py</code> y abre
+          GitHub Pages cannot run Python or Ollama. This URL shows an example request and the architecture.
+          To talk to Mara, on the computer where Ollama runs: <code>python serve.py</code> and open
           <code>http://127.0.0.1:8765</code>.
         </p>
       </div>

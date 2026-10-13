@@ -4,25 +4,25 @@ Mara is the intake assistant for **ORB Atelier**, a fictional restoration worksh
 
 The model runs on your machine through [Ollama](https://ollama.com). The same interface can be published on GitHub Pages as a static example, because Pages cannot run Python or a local model.
 
-## Inicio rápido
+## Quick start
 
-Ollama have to be rujnning with a model, for instance `llama3.2` (`ollama pull llama3.2`). In local is responding in `http://127.0.0.1:11434`.
+`pip install -r requirements.txt` installs the project and prepares the same local model on every machine: Ollama and `llama3.2:3b`. An existing `llama3.2` is reused. The choice is saved in `data/llm.json`.
 
 ```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
 python3 serve.py
 ```
 
-Open [http://127.0.0.1:8765](http://127.0.0.1:8765). The chat, the ticket and JSON's downloads work there. In the terminal, without browser:
+Open [http://127.0.0.1:8765](http://127.0.0.1:8765). The chat, the ticket, and the JSON download work there. From the terminal, without a browser:
 
 ```bash
 python3 -m orb_agent
 ```
 
-The tests use only the standar library plus pytest:
+The tests use the standard library plus pytest. Set `ORB_SKIP_LLM_SETUP=1` if you need to install the dependencies without downloading the model.
 
 ```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
 .venv/bin/pytest
 ```
 
@@ -41,7 +41,7 @@ Mara keeps a ticket with:
 | Order number | no | `ORB-` plus 3 to 6 digits |
 | Call window | no | Morning, afternoon, evening |
 
-A spark, smoke, or a burning smell is stored as critical and the reply tells the customer to unplug the piece. The canonical values in the JSON are English so the file stays stable; the interface shows them in Spanish or English.
+A spark, smoke, or a burning smell is stored as critical and the reply tells the customer to unplug the piece. The interface and the stored values are in English. If a customer writes in Spanish, Mara answers in Spanish.
 
 ## System architecture
 
@@ -66,10 +66,10 @@ Speech uses the browser. Transcription is the Web Speech API (Chrome). Reading a
 
 ## Setup
 
-1. Install [Ollama](https://ollama.com) and pull the model: `ollama pull llama3.2`.
-2. Check it: `curl http://127.0.0.1:11434/api/tags`.
-3. From this directory, run `python3 serve.py`.
-4. Open `http://127.0.0.1:8765`.
+1. `python3 -m venv .venv`
+2. `.venv/bin/pip install -r requirements.txt`
+3. That install starts Ollama if needed, downloads `llama3.2:3b` when no `llama3.2` is present, and writes `data/llm.json`.
+4. `python3 serve.py` and open `http://127.0.0.1:8765`.
 
 Optional environment variables: `OLLAMA_HOST`, `OLLAMA_MODEL`, `AGENT_PORT`.
 
@@ -108,7 +108,7 @@ The published page is the interface plus the example ticket. Visitors do not rea
 
 ## Demo video
 
-Record a short capture of two chats: one in Spanish that ends with a confirmed ticket, and one in English that asks about the warranty. Upload it and put the URL here.
+Record a short capture of two chats: one that files a complete ticket, and one that asks about the warranty. Upload it and put the URL here.
 
 `DEMO_VIDEO_URL=`
 

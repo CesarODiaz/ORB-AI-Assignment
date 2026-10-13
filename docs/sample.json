@@ -1,8 +1,8 @@
 {
-  "id": "0727937f9d3f",
-  "ticket_id": "AT-072793",
+  "id": "0dd75ddcf5d2",
+  "ticket_id": "AT-0DD75D",
   "status": "closed",
-  "language": "es",
+  "language": "en",
   "sentiment": "neutral",
   "intake": {
     "customer_name": "Ana Ruiz",
@@ -11,55 +11,55 @@
     "reference_code": "ORB-1042",
     "item_type": "lamp",
     "category": "electrical",
-    "description": "Hola, soy Ana Ruiz, ana.ruiz@example.com. Se me rompió la lámpara del pedido ORB-1042 y echa chispas. Avisadme por la mañana.",
+    "description": "Hello, I am Ana Ruiz, ana.ruiz@example.com. My lamp from order ORB-1042 is broken and it sparks. Please call me in the morning.",
     "urgency": "critical",
     "preferred_contact": "morning"
   },
   "missing": [],
   "errors": [],
-  "summary": "Ana Ruiz escribió a ORB Atelier por una lámpara (un fallo eléctrico). Descripción: Hola, soy Ana Ruiz, ana.ruiz@example.com. Se me rompió la lámpara del pedido ORB-1042 y echa chispas. Avisadme por la mañana. Urgencia crítica. Pedido ORB-1042. Contacto: ana.ruiz@example.com. Aviso por la mañana. Tono de la conversación: neutro.",
+  "summary": "Ana Ruiz contacted ORB Atelier about a lamp (an electrical fault). Description: Hello, I am Ana Ruiz, ana.ruiz@example.com. My lamp from order ORB-1042 is broken and it sparks. Please call me in the morning. Urgency is critical. Order ORB-1042. Contact: ana.ruiz@example.com. Preferred call in the morning. Tone of the conversation: neutral.",
   "citations": [
     {
-      "id": "electrical-es",
-      "title": "Seguridad eléctrica",
-      "snippet": "Si la pieza echa chispas, huele a quemado o calienta el cable, desenchúfala y no la uses. Eso se trata como urgencia crítica. No abras el portalámparas ni toques cables pelados.",
+      "id": "electrical-en",
+      "title": "Electrical safety",
+      "snippet": "If the piece sparks, smells of burning, or the cord gets hot, unplug it and stop using it. We treat that as critical urgency. Do not open the socket or touch bare wires.",
       "score": 6
     },
     {
-      "id": "reference-es",
-      "title": "Número de pedido",
-      "snippet": "El número de pedido tiene la forma ORB- seguido de 3 a 6 dígitos, por ejemplo ORB-1042. Está en el recibo y en el email de encargo. Si es una pieza nueva, no hace falta número.",
-      "score": 4
+      "id": "reference-en",
+      "title": "Order number",
+      "snippet": "Order numbers look like ORB- followed by 3 to 6 digits, for example ORB-1042. They are printed on the receipt and the commission email. A new piece does not need a number.",
+      "score": 5
     }
   ],
   "messages": [
     {
       "role": "assistant",
-      "content": "Hola, soy Mara, del taller ORB. Restauramos lámparas, muebles y tapizados en Valencia. If you prefer English, just write in English. Cuéntame qué pieza hay que mirar y, si puedes, tu nombre y un email o un teléfono.",
-      "at": "2026-09-30T21:49:35+00:00"
+      "content": "Hello, I'm Mara from ORB Atelier in Valencia. We restore lamps, furniture, and small upholstery. Tell me what needs restoring and, if you can, your name and an email or a phone number.",
+      "at": "2026-10-12T19:26:54+00:00"
     },
     {
       "role": "user",
-      "content": "Hola, soy Ana Ruiz, ana.ruiz@example.com. Se me rompió la lámpara del pedido ORB-1042 y echa chispas. Avisadme por la mañana.",
-      "at": "2026-09-30T21:49:35+00:00"
+      "content": "Hello, I am Ana Ruiz, ana.ruiz@example.com. My lamp from order ORB-1042 is broken and it sparks. Please call me in the morning.",
+      "at": "2026-10-12T19:26:54+00:00"
     },
     {
       "role": "assistant",
-      "content": "Ana, desenchufa la lámpara y no la uses: las chispas son una urgencia crítica. Dejo anotado el pedido ORB-1042 y te avisaremos por la mañana.\n\nConfirma estos datos y lo dejo registrado:\nNombre: Ana Ruiz\nEmail: ana.ruiz@example.com\nTeléfono: —\nPedido: ORB-1042\nPieza: Lámpara\nMotivo: Fallo eléctrico\nUrgencia: crítica\nDescripción: Hola, soy Ana Ruiz, ana.ruiz@example.com. Se me rompió la lámpara del pedido ORB-1042 y echa chispas. Avisadme por la mañana.\nResponde sí para cerrar la ficha, o dime qué hay que corregir.",
-      "at": "2026-09-30T21:49:35+00:00"
+      "content": "Ana, unplug the lamp and do not use it. Sparks are a critical urgency. I have noted order ORB-1042 and we will call you in the morning.\n\nPlease confirm these details:\nName: Ana Ruiz\nEmail: ana.ruiz@example.com\nPhone: —\nOrder: ORB-1042\nPiece: Lamp\nReason: Electrical fault\nUrgency: critical\nDescription: Hello, I am Ana Ruiz, ana.ruiz@example.com. My lamp from order ORB-1042 is broken and it sparks. Please call me in the morning.\nReply yes to file the request, or tell me what to change.",
+      "at": "2026-10-12T19:26:54+00:00"
     },
     {
       "role": "user",
-      "content": "Confirmo los datos de la ficha.",
-      "at": "2026-09-30T21:49:35+00:00"
+      "content": "Yes, I confirm the details.",
+      "at": "2026-10-12T19:26:54+00:00"
     },
     {
       "role": "assistant",
-      "content": "Listo. Dejé la consulta registrada como AT-072793. El taller usará el contacto que nos diste. Si la pieza echa chispas o huele a quemado, mantenla desenchufada.",
-      "at": "2026-09-30T21:49:35+00:00"
+      "content": "Done. Your request is filed as AT-0DD75D. The workshop will use the contact you gave us. If the piece sparks or smells of burning, keep it unplugged.",
+      "at": "2026-10-12T19:26:54+00:00"
     }
   ],
   "model": "llama3.2",
-  "created_at": "2026-09-30T21:49:35+00:00",
-  "updated_at": "2026-09-30T21:49:35+00:00"
+  "created_at": "2026-10-12T19:26:54+00:00",
+  "updated_at": "2026-10-12T19:26:54+00:00"
 }

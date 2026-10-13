@@ -85,8 +85,8 @@ class OllamaClient:
         prompt_s = (data.get("prompt_eval_duration") or 0) / 1e9
         answer_s = (data.get("eval_duration") or 0) / 1e9
         print(
-            f"[orb] {self.model}: {prompt_tokens} tokens de contexto en {prompt_s:.1f}s, "
-            f"{answer_tokens} de respuesta en {answer_s:.1f}s"
+            f"[orb] {self.model}: {prompt_tokens} context tokens in {prompt_s:.1f}s, "
+            f"{answer_tokens} reply tokens in {answer_s:.1f}s"
         )
         content = ((data.get("message") or {}).get("content")) or ""
         parsed = _object_from_text(content)

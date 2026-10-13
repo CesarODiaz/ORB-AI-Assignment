@@ -5,6 +5,8 @@ __pycache__/
 venv/
 data/conversations/*.json
 !data/conversations/.gitkeep
+data/llm.json
+*.egg-info/
 .DS_Store
 todo.md
 /root/assignemnts/ORBai/ORB-AI-Assignment/todo.md

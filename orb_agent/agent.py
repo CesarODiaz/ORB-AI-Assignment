@@ -21,9 +21,8 @@ from orb_agent.textutil import clip, tokens
 from orb_agent.validation import apply_fields, empty_intake, missing_fields
 
 GREETING = (
-    "Hola, soy Mara, del taller ORB. Restauramos lámparas, muebles y tapizados en Valencia. "
-    "If you prefer English, just write in English. "
-    "Cuéntame qué pieza hay que mirar y, si puedes, tu nombre y un email o un teléfono."
+    "Hello, I'm Mara from ORB Atelier in Valencia. We restore lamps, furniture, and small upholstery. "
+    "Tell me what needs restoring and, if you can, your name and an email or a phone number."
 )
 HISTORY_WINDOW = 6
 
@@ -63,7 +62,7 @@ class Agent:
             "created_at": now,
             "updated_at": now,
             "status": "collecting",
-            "language": "es",
+            "language": "en",
             "sentiment": "neutral",
             "awaiting_correction": False,
             "intake": empty_intake(),
@@ -96,7 +95,7 @@ class Agent:
         message = message[:4000]
         now = _now()
         record["messages"].append({"role": "user", "content": message, "at": now})
-        record["language"] = detect_language(message, record.get("language", "es"))
+        record["language"] = detect_language(message, record.get("language", "en"))
         lexicon = lexicon_sentiment(message)
 
         if record["status"] == "closed":
@@ -165,7 +164,7 @@ class Agent:
         try:
             parsed = self.client.complete(messages)
         except LlmError as exc:
-            print(f"[orb] el modelo no contestó ({exc}); sigo con la ficha local")
+            print(f"[orb] the model did not answer ({exc}); continuing with the local ticket")
             return "", None, False
         fields = parsed.get("fields")
         if isinstance(fields, str):

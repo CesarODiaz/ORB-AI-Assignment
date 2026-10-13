@@ -32,10 +32,10 @@ class AgentHandler(SimpleHTTPRequestHandler):
             try:
                 self._send(200, self.server.agent.get(match.group(1)))
             except KeyError:
-                self._send(404, {"error": "No encuentro esa conversación."})
+                self._send(404, {"error": "Conversation not found."})
             return
         if path.startswith("/api/"):
-            self._send(404, {"error": "Ruta no encontrada."})
+            self._send(404, {"error": "Route not found."})
             return
         super().do_GET()
 
@@ -46,17 +46,17 @@ class AgentHandler(SimpleHTTPRequestHandler):
             return
         match = re.fullmatch(r"/api/conversations/([A-Za-z0-9]+)/messages", path)
         if not match:
-            self._send(404, {"error": "Ruta no encontrada."})
+            self._send(404, {"error": "Route not found."})
             return
         try:
             payload = self._read_json()
             result = self.server.agent.handle(match.group(1), str(payload.get("text", "")))
         except ValueError:
-            self._send(400, {"error": "Escribe un mensaje antes de enviarlo."})
+            self._send(400, {"error": "Write a message before sending."})
         except KeyError:
-            self._send(404, {"error": "No encuentro esa conversación."})
+            self._send(404, {"error": "Conversation not found."})
         except json.JSONDecodeError:
-            self._send(400, {"error": "El cuerpo tiene que ser JSON."})
+            self._send(400, {"error": "The body must be JSON."})
         else:
             self._send(200, result)
 
